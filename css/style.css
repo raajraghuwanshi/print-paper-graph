@@ -1,0 +1,348 @@
+/* Print Graph Paper Theme CSS */
+
+body {
+    background-color: #dddddd;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.header-title {
+    font-weight: normal;
+    margin: 0;
+    margin-top: 0.25em;
+    font-size: 2.2rem;
+    color: #222222;
+}
+
+.header-link {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+/* Layout Grid */
+.layout-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.sidebar-ad {
+    width: 160px;
+    flex-shrink: 0;
+    padding: 0 10px;
+}
+
+.ad-box {
+    background: #e9e9e9;
+    border: 1px dashed #bbb;
+    border-radius: 4px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-content-col {
+    flex: 1;
+    min-width: 0;
+    background: #ffffff;
+    padding: 2em 2.5em;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Typography & Content Sections */
+.lead-box {
+    background: #f8f9fa;
+    border-left: 4px solid #0088cc;
+    padding: 1.25em 1.5em;
+    margin-bottom: 2em;
+    border-radius: 0 4px 4px 0;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #444;
+}
+
+/* Item List Card */
+.paper-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.paper-item:last-child {
+    border-bottom: none;
+}
+
+.paper-thumb-link {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.paper-thumb {
+    width: 110px;
+    height: 140px;
+    object-fit: cover;
+    border: 1px solid #cccccc;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-thumb:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 5px 12px rgba(0,0,0,0.18);
+}
+
+.paper-info {
+    flex-grow: 1;
+}
+
+.paper-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.35rem;
+}
+
+.paper-title a {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+.paper-title a:hover {
+    color: #005580;
+    text-decoration: underline;
+}
+
+.paper-desc {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+
+}
+
+.paper-desc a {
+    color: #0088cc;
+    font-weight: 500;
+}
+
+/* Details Page UI */
+.details-flex {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 2em;
+}
+
+.details-thumb-col {
+    flex-shrink: 0;
+}
+
+.details-thumb-large {
+    width: 160px;
+    height: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+    background: #fff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-large {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #0088cc;
+    border-color: #0088cc;
+}
+
+.btn-primary:hover {
+    background-color: #006699;
+    border-color: #005580;
+    color: #ffffff;
+}
+
+.btn-default {
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+}
+
+.btn-default:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #333333;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+    color: #ffffff;
+}
+
+.btn-group {
+    display: inline-flex;
+}
+
+.btn-group .btn {
+    border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.option-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Reference Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.table th, .table td {
+    padding: 10px 12px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background: #f9f9f9;
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    margin-top: 1.5em;
+    color: #777;
+    margin-bottom: 2em;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #666;
+    margin-left: 10px;
+}
+
+/* Virtual Paper Workbench */
+.virtual-controls {
+    width: 700px;
+    margin: 0 auto 15px auto;
+}
+
+.virtual-controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.canvas-wrapper {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+}
+
+#paper {
+    border: 2px solid #a7c4ce;
+    display: block;
+    background: #ffffff;
+    cursor: crosshair;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#current_coordinates_container {
+    width: 700px;
+    margin: 8px auto 0 auto;
+    color: #888888;
+    font-size: 0.85rem;
+}
+
+/* Print Only Styles */
+@media print {
+    body {
+        background: #fff;
+    }
+    .sidebar-ad, .header-title, .header-link, .virtual-controls, #current_coordinates_container, .footer {
+        display: none !important;
+    }
+    .main-container, .main-content-col {
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #paper {
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+}
