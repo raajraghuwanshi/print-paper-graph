@@ -171,12 +171,13 @@ body {
 
 .btn {
     display: inline-block;
+    box-sizing: border-box;
     padding: 8px 16px;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
     vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
@@ -323,6 +324,106 @@ body {
     margin: 8px auto 0 auto;
     color: #888888;
     font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .layout-row {
+        flex-direction: column;
+    }
+    .main-content-col {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    .sidebar-ad {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .sidebar-ad:last-child {
+        margin-bottom: 0;
+    }
+    .ad-box {
+        width: 100%;
+        max-width: 728px;
+        height: 90px; /* Banner format */
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-col {
+        padding: 1.5em;
+    }
+    .paper-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .paper-thumb-link {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+    .details-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .virtual-controls, 
+    .canvas-wrapper, 
+    #current_coordinates_container {
+        width: 100%;
+        max-width: 100%;
+    }
+    #paper {
+        max-width: 100%;
+        height: auto;
+    }
+    .virtual-controls-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .virtual-controls-row > div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-group .btn {
+        width: 100%;
+        border-radius: 4px !important;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content-col {
+        padding: 1.25em 1em;
+    }
+    .header-title {
+        font-size: 1.75rem;
+    }
+    .ad-box {
+        max-width: 320px;
+        height: 100px; /* Mobile banner */
+    }
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .action-buttons .btn {
+        width: 100%;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .action-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
 }
 
 /* Print Only Styles */

@@ -102,9 +102,11 @@
 
     function getCanvasCoords(e) {
         const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
         return {
-            x: Math.round(e.clientX - rect.left),
-            y: Math.round(e.clientY - rect.top)
+            x: Math.round((e.clientX - rect.left) * scaleX),
+            y: Math.round((e.clientY - rect.top) * scaleY)
         };
     }
 
