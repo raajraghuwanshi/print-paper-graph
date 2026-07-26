@@ -29,12 +29,9 @@ $description = "Download and print $sizeLabel graph paper in portrait or landsca
 <body>
     <div class="main-container">
         <!-- Header -->
-        <div class="layout-row" style="margin-bottom:1em;">
-            <div class="main-content-col" style="background:none;padding:0;box-shadow:none;">
-                <h1 class="header-title"><?php echo $sizeLabel; ?> Graph Paper</h1>
-                <a href="/" class="header-link">print-graph-paper.com</a>
-            </div>
-        </div>
+        <header class="site-header">
+            <a href="/" class="brand-logo">Print-Graph-Paper.com</a>
+        </header>
 
         <div class="layout-row">
             <!-- Left Ad Skyscraper -->
@@ -46,41 +43,50 @@ $description = "Download and print $sizeLabel graph paper in portrait or landsca
 
             <!-- Main Content Area -->
             <div class="main-content-col">
-                <div class="lead-box">
-                    <p class="lead-text">
-                        Browse all available graph papers formatted specifically for <strong><?php echo $sizeLabel; ?></strong>.
-                        Choose any grid style below to print or download.
-                    </p>
-                </div>
-
-                <?php 
-                $types = [
-                    '5mm' => '5mm Graph Paper',
-                    '1-4-inch' => '1/4" Inch Graph Paper',
-                    '10-squares-per-inch' => '10 Squares Per Inch Graph Paper',
-                    'dot-paper' => 'Dot Paper',
-                    '10mm' => 'Centimeter Graph Paper',
-                    '1-2-inch' => '1/2" Half Inch Graph Paper',
-                    '1-inch' => '1" One-Inch Graph Paper',
-                    'isometric' => 'Isometric Graph Paper',
-                    'log' => 'Log Graph Paper',
-                    'polar' => 'Polar Graph Paper'
-                ];
-                foreach ($types as $tKey => $tName):
-                ?>
-                <div class="paper-item">
-                    <a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>" class="paper-thumb-link">
-                        <img class="paper-thumb" src="/thumbnail.php?type=<?php echo $tKey; ?>" alt="<?php echo $tName; ?>">
-                    </a>
-                    <div class="paper-info">
-                        <h3 class="paper-title"><a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>"><?php echo $tName; ?> (<?php echo strtoupper($size); ?>)</a></h3>
-                        <p class="paper-desc">
-                            Printable <?php echo $tName; ?> sized for <?php echo $sizeLabel; ?> paper. Available in portrait and landscape orientations.
-                            <a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>">View details & print</a>
-                        </p>
+                <!-- Top Advertisement -->
+                <div class="top-ad" style="margin-bottom: 2.5em; text-align: center;">
+                    <div class="ad-box" style="height: 90px; width: 100%; max-width: 970px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.85rem;">
+                        <span>Advertisement<br>Top Banner</span>
                     </div>
                 </div>
-                <?php endforeach; ?>
+
+                <!-- Small Page Header -->
+                <div style="text-align: center; margin-bottom: 3em;">
+                    <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 0.3em 0; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><?php echo $sizeLabel; ?></h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+                        Browse all available graph papers formatted specifically for this paper size.
+                    </p>
+                </div>
+                <div class="paper-grid">
+                    <?php 
+                    $types = [
+                        '5mm' => '5mm Graph Paper',
+                        '1-4-inch' => '1/4" Inch Graph Paper',
+                        '10-squares-per-inch' => '10 Squares Per Inch Graph Paper',
+                        'dot-paper' => 'Dot Paper',
+                        '10mm' => 'Centimeter Graph Paper',
+                        '1-2-inch' => '1/2" Half Inch Graph Paper',
+                        '1-inch' => '1" One-Inch Graph Paper',
+                        'isometric' => 'Isometric Graph Paper',
+                        'log' => 'Log Graph Paper',
+                        'polar' => 'Polar Graph Paper'
+                    ];
+                    foreach ($types as $tKey => $tName):
+                    ?>
+                    <a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>" class="paper-card">
+                        <div class="paper-card-header">
+                            <img class="paper-thumb" src="/thumbnail.php?type=<?php echo $tKey; ?>" alt="<?php echo $tName; ?>">
+                        </div>
+                        <div class="paper-info">
+                            <h3 class="paper-title"><?php echo $tName; ?></h3>
+                            <p class="paper-desc">
+                                Printable <?php echo $tName; ?> sized for <?php echo strtoupper($size); ?>.
+                            </p>
+                            <span class="paper-action">View details</span>
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <!-- Right Ad Skyscraper -->

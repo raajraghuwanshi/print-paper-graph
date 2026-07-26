@@ -72,12 +72,9 @@ $genBaseUrl = "/generator.php?type=$type&paperSize=$paperSize&orientation=$orien
 <body>
     <div class="main-container">
         <!-- Header -->
-        <div class="layout-row" style="margin-bottom:1em;">
-            <div class="main-content-col" style="background:none;padding:0;box-shadow:none;">
-                <h1 class="header-title">Print-Graph-Paper.com</h1>
-                <a href="/" class="header-link">print-graph-paper.com</a>
-            </div>
-        </div>
+        <header class="site-header">
+            <a href="/" class="brand-logo">Print-Graph-Paper.com</a>
+        </header>
 
         <div class="layout-row">
             <!-- Left Ad Skyscraper -->
@@ -89,101 +86,115 @@ $genBaseUrl = "/generator.php?type=$type&paperSize=$paperSize&orientation=$orien
 
             <!-- Main Content Area -->
             <div class="main-content-col">
-                <div class="details-flex">
+                <!-- Top Advertisement -->
+                <div class="top-ad" style="margin-bottom: 2.5em; text-align: center;">
+                    <div class="ad-box" style="height: 90px; width: 100%; max-width: 970px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.85rem;">
+                        <span>Advertisement<br>Top Banner</span>
+                    </div>
+                </div>
+
+                <div class="details-panel">
                     <div class="details-thumb-col">
                         <img class="details-thumb-large" src="/thumbnail.php?type=<?php echo $type; ?>" alt="<?php echo $item['name']; ?> Preview">
                     </div>
-                    <div style="flex:1;">
-                        <h2 style="margin-top:0;font-size:1.6rem;"><?php echo $item['name']; ?></h2>
-                        <p style="margin-top:10px;line-height:1.6;color:#444;"><?php echo $item['desc']; ?></p>
-                        <p style="color:#666;">
-                            This graph paper was designed for <strong><?php echo ucfirst($paperSize); ?></strong> size paper in the <strong><?php echo $orientation; ?></strong> orientation.
+                    <div class="details-content">
+                        <h2><?php echo $item['name']; ?></h2>
+                        <p><?php echo $item['desc']; ?></p>
+                        <p>
+                            Designed for <strong><?php echo ucfirst($paperSize); ?></strong> size paper in the <strong><?php echo $orientation; ?></strong> orientation.
                         </p>
-                        <p style="color:#666;">
-                            Below you have several options. You can print the graph paper, open it directly in your browser, or download it for later use.
+                        <p>
+                            Select from the options below, print it directly, open it in a new tab, or download it as a high-quality PDF.
                         </p>
 
                         <!-- Action Buttons -->
                         <div class="action-buttons">
-                            <a class="btn btn-large btn-primary" href="<?php echo $genBaseUrl; ?>&act=print" target="_blank">🖨️ Print</a>
-                            <a class="btn btn-large btn-default" href="<?php echo $genBaseUrl; ?>&act=download">📥 Download</a>
-                            <a class="btn btn-large btn-default" href="<?php echo $genBaseUrl; ?>&act=open" target="_blank">🔗 Open</a>
+                            <a class="btn btn-primary" href="<?php echo $genBaseUrl; ?>&act=print" target="_blank">Print Document</a>
+                            <a class="btn btn-default" href="<?php echo $genBaseUrl; ?>&act=download">Download PDF</a>
+                            <a class="btn btn-default" href="<?php echo $genBaseUrl; ?>&act=open" target="_blank">Open in Browser</a>
                         </div>
 
                         <!-- Choose Paper Size -->
-                        <h4 style="margin-top:24px;margin-bottom:8px;">Choose a different paper size:</h4>
-                        <div class="option-chips">
-                            <?php foreach ($sizes as $sKey => $sLabel): ?>
-                                <?php 
-                                    $btnClass = ($sKey === $paperSize) ? 'btn-primary' : 'btn-default';
-                                    $url = "/details/$type/$sKey/$orientation/$color";
-                                ?>
-                                <a href="<?php echo $url; ?>" class="btn <?php echo $btnClass; ?>"><?php echo $sLabel; ?></a>
-                            <?php endforeach; ?>
+                        <div class="option-section">
+                            <h4>Paper Size</h4>
+                            <div class="option-chips">
+                                <?php foreach ($sizes as $sKey => $sLabel): ?>
+                                    <?php 
+                                        $btnClass = ($sKey === $paperSize) ? 'chip active' : 'chip';
+                                        $url = "/details/$type/$sKey/$orientation/$color";
+                                    ?>
+                                    <a href="<?php echo $url; ?>" class="<?php echo $btnClass; ?>"><?php echo $sLabel; ?></a>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
 
                         <!-- Choose Line Color -->
-                        <h4 style="margin-top:16px;margin-bottom:8px;">Choose a different line color:</h4>
-                        <div class="option-chips">
-                            <?php foreach ($colors as $cKey => $cLabel): ?>
-                                <?php 
-                                    $btnClass = ($cKey === $color) ? 'btn-primary' : 'btn-default';
-                                    $url = "/details/$type/$paperSize/$orientation/$cKey";
-                                ?>
-                                <a href="<?php echo $url; ?>" class="btn <?php echo $btnClass; ?>"><?php echo $cLabel; ?></a>
-                            <?php endforeach; ?>
+                        <div class="option-section">
+                            <h4>Line Color</h4>
+                            <div class="option-chips">
+                                <?php foreach ($colors as $cKey => $cLabel): ?>
+                                    <?php 
+                                        $btnClass = ($cKey === $color) ? 'chip active' : 'chip';
+                                        $url = "/details/$type/$paperSize/$orientation/$cKey";
+                                    ?>
+                                    <a href="<?php echo $url; ?>" class="<?php echo $btnClass; ?>"><?php echo $cLabel; ?></a>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
 
-                        <p style="margin-top:15px;">
-                            <a href="/details/<?php echo $type; ?>/<?php echo $paperSize; ?>/<?php echo $altOrientation; ?>/<?php echo $color; ?>" style="color:#0088cc;font-weight:500;">
-                                🔄 Switch to <?php echo $altOrientation; ?> paper orientation
-                            </a>
-                        </p>
+                        <a href="/details/<?php echo $type; ?>/<?php echo $paperSize; ?>/<?php echo $altOrientation; ?>/<?php echo $color; ?>" class="switch-orientation">
+                            🔄 Switch to <?php echo $altOrientation; ?> orientation
+                        </a>
                     </div>
                 </div>
 
                 <!-- Reference Table -->
-                <div style="margin-top:2em;border-top:1px solid #eee;padding-top:1.5em;">
-                    <h4>For reference here is a list and description of all the sizes:</h4>
+                <div class="table-container">
                     <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Size Name</th>
+                                <th>Description / Dimensions</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
                                 <th>Letter</th>
-                                <td>The 'letter' paper size is the most common size paper used in the U.S. It's 8.5 inches wide by 11 inches tall.</td>
+                                <td>The most common U.S. paper size (8.5" × 11").</td>
                             </tr>
                             <tr>
                                 <th>A4</th>
-                                <td>A4 paper is the most common international paper size. It's 210 mm by 297 mm.</td>
+                                <td>The most common international paper size (210mm × 297mm).</td>
                             </tr>
                             <tr>
                                 <th>11x17</th>
-                                <td>Tabloid paper is the size of two standard 'letter' size papers side by side (11x17 inches).</td>
+                                <td>Tabloid paper size (11" × 17").</td>
                             </tr>
                             <tr>
                                 <th>Legal</th>
-                                <td>Legal size paper is 8.5 inches by 14 inches (3 inches longer than Letter).</td>
+                                <td>Legal size paper (8.5" × 14").</td>
                             </tr>
                             <tr>
                                 <th>A3</th>
-                                <td>A3 paper is like putting two A4 papers side by side. It's 420 mm by 297 mm.</td>
+                                <td>Twice the size of A4 (420mm × 297mm).</td>
                             </tr>
                             <tr>
                                 <th>A2</th>
-                                <td>A2 paper is the size of 2 A3 papers put together. It's 420 mm by 594 mm.</td>
+                                <td>Twice the size of A3 (420mm × 594mm).</td>
                             </tr>
                             <tr>
                                 <th>Poster</th>
-                                <td>Poster size paper is 24 inches wide by 36 inches tall.</td>
+                                <td>Standard poster size (24" × 36").</td>
                             </tr>
                             <tr>
                                 <th>Movie Poster</th>
-                                <td>Movie poster size is 27x41 inches.</td>
+                                <td>Standard movie poster size (27" × 41").</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-
+            
             <!-- Right Ad Skyscraper -->
             <div class="sidebar-ad">
                 <div class="ad-box">

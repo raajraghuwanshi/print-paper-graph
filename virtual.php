@@ -1,5 +1,5 @@
 <?php
-$title = "Virtual Online Graph Paper";
+$title = "Virtual Online Graph Paper - Premium Workspace";
 $description = "Free easy to use virtual graph paper. Draw lines, write notes, undo if you need to, and print. Simple, easy, interactive online graph paper.";
 ?>
 <!DOCTYPE html>
@@ -14,12 +14,9 @@ $description = "Free easy to use virtual graph paper. Draw lines, write notes, u
 <body>
     <div class="main-container">
         <!-- Header -->
-        <div class="layout-row" style="margin-bottom:1em;">
-            <div class="main-content-col" style="background:none;padding:0;box-shadow:none;">
-                <h1 class="header-title">Virtual Online Graph Paper</h1>
-                <a href="/" class="header-link">print-graph-paper.com</a>
-            </div>
-        </div>
+        <header class="site-header">
+            <a href="/" class="brand-logo">Print-Graph-Paper.com</a>
+        </header>
 
         <div class="layout-row">
             <!-- Left Ad Skyscraper -->
@@ -31,68 +28,49 @@ $description = "Free easy to use virtual graph paper. Draw lines, write notes, u
 
             <!-- Main Content Area -->
             <div class="main-content-col">
-                <div class="lead-box" style="margin-bottom:1.5em;">
-                    <p class="lead-text">
-                        <strong>Welcome to the virtual online graph paper!</strong><br>
-                        Here you can easily draw lines, write text notes, and print your graph paper.
-                    </p>
-                    <ul style="margin-top:10px;margin-bottom:10px;color:#444;">
-                        <li><strong>To draw lines:</strong> Click anywhere on the grid below and drag while holding the mouse button.</li>
-                        <li><strong>To write text:</strong> Click anywhere on the grid and start typing.</li>
-                    </ul>
-                    <p style="margin:0;font-size:0.95rem;">
-                        Looking for printable PDF graph papers instead? <a href="/" style="color:#0088cc;">Click here to return to homepage</a>.
+                <!-- Top Advertisement -->
+                <div class="top-ad" style="margin-bottom: 2.5em; text-align: center;">
+                    <div class="ad-box" style="height: 90px; width: 100%; max-width: 970px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.85rem;">
+                        <span>Advertisement<br>Top Banner</span>
+                    </div>
+                </div>
+
+                <!-- Small Page Header -->
+                <div style="text-align: center; margin-bottom: 3em;">
+                    <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 0.3em 0; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Virtual Workspace</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+                        Draw lines, write text notes, and print your virtual graph paper.
                     </p>
                 </div>
 
-                <!-- Virtual Controls Toolbar -->
-                <div class="virtual-controls">
+                <!-- Virtual Workspace UI -->
+                <div class="virtual-workspace">
                     <div class="virtual-controls-row">
-                        <div></div>
-                        <div style="display:flex;gap:8px;">
-                            <button id="undo" class="btn btn-primary">↩️ Undo</button>
-                            <button id="print" class="btn btn-primary">🖨️ Print</button>
-                            <button id="eraseAll" class="btn btn-danger">🗑️ Erase Everything</button>
-                            <button id="downloadImage" class="btn btn-default">📥 Download Image</button>
+                        <div class="btn-group" style="display:flex; gap:10px;">
+                            <button id="draw-write-tool" class="btn btn-primary" style="padding: 10px 20px;">Draw / Write</button>
+                            <button id="erase-tool" class="btn btn-default" style="padding: 10px 20px;">Erase</button>
+                        </div>
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+                            <button id="undo" class="btn btn-default" style="padding: 10px 15px;">↩️ Undo</button>
+                            <button id="print" class="btn btn-primary" style="padding: 10px 15px;">🖨️ Print</button>
+                            <button id="downloadImage" class="btn btn-default" style="padding: 10px 15px;">📥 Download</button>
+                            <button id="eraseAll" class="btn btn-danger" style="background: rgba(239, 68, 68, 0.1); border-color: transparent; color: #ef4444; padding: 10px 15px;">🗑️ Clear All</button>
                         </div>
                     </div>
 
-                    <div style="height:1px;background:#ccc;margin:10px 0;"></div>
+                    <div style="margin-bottom: 25px; color: var(--text-secondary); font-size: 1.05rem; text-align: center;">
+                        <span id="tool-description">Click and drag to draw lines. Click to write text.</span>
+                    </div>
 
-                    <div class="virtual-controls-row" style="margin-bottom:4px;">
-                        <span style="font-weight:600;">Mode:</span>
-                        <div class="btn-group">
-                            <button id="draw-write-tool" class="btn btn-primary">Drag Draw / Click Write</button>
-                            <button id="erase-tool" class="btn btn-default">Erase</button>
+                    <!-- Canvas Component -->
+                    <div class="canvas-wrapper">
+                        <canvas id="paper" width="700" height="900"></canvas>
+                        <div id="current_coordinates_container">
+                            Current coordinates: <span id="current_coordinates" style="color: var(--accent-primary); font-weight:600;">(0, 0)</span>
+                            <span id="line_length" style="margin-left: 15px;"></span>
                         </div>
+                        <input id="textInput" style="position:fixed; display:none; background:rgba(15,23,42,0.9); border:1px solid #0ea5e9; padding:8px 16px; border-radius:8px; outline:none; color:#f8fafc; font-family:var(--font-family); font-size:1rem; z-index:1000; box-shadow:0 10px 30px rgba(0,0,0,0.6);" placeholder="Type text & hit Enter">
                     </div>
-
-                    <div>
-                        <span id="tool-description" style="font-style:italic;color:#666;font-size:0.9rem;">
-                            tool description
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Canvas Component -->
-                <div class="canvas-wrapper">
-                    <canvas id="paper" width="700" height="900"></canvas>
-                    <div id="current_coordinates_container">
-                        Current coordinates: <span id="current_coordinates">(0, 0)</span>
-                        <span id="line_length"></span>
-                    </div>
-                    <input id="textInput" style="position:fixed; display:none; background:rgba(255,255,255,0.9); border:1px solid #0088cc; padding:2px 4px; border-radius:3px; outline:none; z-index:1000;" placeholder="Type text & hit Enter">
-                </div>
-
-                <div style="margin-top:2em;border-top:1px solid #eee;padding-top:1.5em;">
-                    <p>
-                        At print-graph-paper.com in addition to this printable virtual graph paper
-                        we offer all kinds of free downloadable graph paper. That includes graph paper
-                        for different size papers in both landscape and portrait.
-                    </p>
-                    <p>
-                        If you are interested you can head on over to our <a href="/" style="color:#0088cc;">homepage</a>.
-                    </p>
                 </div>
             </div>
 
