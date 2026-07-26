@@ -24,40 +24,64 @@ $description = "Download and print $sizeLabel graph paper in portrait or landsca
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <meta name="description" content="<?php echo $description; ?>">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: '#0f172a',
+                        surface: 'rgba(30, 41, 59, 0.7)',
+                        surfaceHover: 'rgba(30, 41, 59, 0.9)',
+                        accent: '#0ea5e9',
+                        accentHover: '#0284c7',
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderHighlight: 'rgba(14, 165, 233, 0.5)'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="main-container">
+<body class="bg-main text-slate-50 font-sans min-h-screen bg-fixed leading-relaxed m-0 p-0">
+    <div class="max-w-[1700px] mx-auto px-[40px] pb-[40px] max-[900px]:px-[15px] max-[900px]:pb-[30px]">
         <!-- Header -->
-        <header class="site-header">
-            <a href="/" class="brand-logo">Print-Graph-Paper.com</a>
+        <header class="bg-[#0f172a]/60 backdrop-blur-md border-b border-borderColor py-6 mb-16 text-center sticky top-0 z-50">
+            <a href="/" class="text-[2.2rem] font-bold tracking-tight bg-gradient-to-br from-sky-400 to-indigo-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Print-Graph-Paper.com</a>
         </header>
 
-        <div class="layout-row">
+        <div class="flex flex-nowrap gap-10 max-[900px]:gap-5">
             <!-- Left Ad Skyscraper -->
-            <div class="sidebar-ad">
-                <div class="ad-box">
+            <div class="w-[250px] shrink-0 sticky top-[120px] h-max max-[1250px]:hidden">
+                <div class="bg-white/5 border border-dashed border-white/10 rounded-2xl h-[600px] flex items-center justify-center text-slate-400 text-sm text-center p-5">
                     <span>Advertisement<br>Left Skyscraper</span>
                 </div>
             </div>
 
             <!-- Main Content Area -->
-            <div class="main-content-col">
+            <div class="flex-1 min-w-0">
                 <!-- Top Advertisement -->
-                <div class="top-ad" style="margin-bottom: 2.5em; text-align: center;">
-                    <div class="ad-box" style="height: 90px; width: 100%; max-width: 970px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.85rem;">
+                <div class="mb-10 text-center">
+                    <div class="h-[90px] w-full max-w-[970px] mx-auto bg-white/5 border border-dashed border-white/10 rounded-xl flex items-center justify-center text-slate-400 text-sm">
                         <span>Advertisement<br>Top Banner</span>
                     </div>
                 </div>
 
                 <!-- Small Page Header -->
-                <div style="text-align: center; margin-bottom: 3em;">
-                    <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 0.3em 0; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><?php echo $sizeLabel; ?></h1>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+                <div class="text-center mb-12">
+                    <h1 class="text-[2.2rem] max-[900px]:text-[2.4rem] font-bold m-0 mb-1 bg-gradient-to-r from-slate-50 to-slate-400 bg-clip-text text-transparent"><?php echo $sizeLabel; ?></h1>
+                    <p class="text-[1.1rem] text-slate-400 max-w-[650px] mx-auto">
                         Browse all available graph papers formatted specifically for this paper size.
                     </p>
                 </div>
-                <div class="paper-grid">
+                
+                <div class="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[30px] max-[900px]:grid-cols-1">
                     <?php 
                     $types = [
                         '5mm' => '5mm Graph Paper',
@@ -73,16 +97,16 @@ $description = "Download and print $sizeLabel graph paper in portrait or landsca
                     ];
                     foreach ($types as $tKey => $tName):
                     ?>
-                    <a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=<?php echo $tKey; ?>" alt="<?php echo $tName; ?>">
+                    <a href="/details/<?php echo $tKey; ?>/<?php echo $size; ?>" class="bg-surface hover:bg-surfaceHover border border-borderColor hover:border-borderHighlight rounded-2xl p-[30px] flex flex-col no-underline relative overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(14,165,233,0.15)] group">
+                        <div class="flex justify-center mb-6 relative z-10">
+                            <img class="w-[150px] h-[190px] object-cover border border-white/20 rounded-lg bg-white shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-transform duration-400 group-hover:scale-105 group-hover:rotate-3 group-hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]" src="/thumbnail.php?type=<?php echo $tKey; ?>" alt="<?php echo $tName; ?>">
                         </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title"><?php echo $tName; ?></h3>
-                            <p class="paper-desc">
+                        <div class="flex-grow flex flex-col relative z-10">
+                            <h3 class="m-0 mb-3 text-[1.5rem] font-semibold text-slate-50"><?php echo $tName; ?></h3>
+                            <p class="m-0 mb-6 text-slate-400 text-[1rem] leading-relaxed flex-grow">
                                 Printable <?php echo $tName; ?> sized for <?php echo strtoupper($size); ?>.
                             </p>
-                            <span class="paper-action">View details</span>
+                            <span class="inline-flex items-center gap-2 font-semibold text-sky-500 mt-auto group-hover:text-sky-400 transition-colors">View details<span class="transition-transform group-hover:translate-x-1.5">→</span></span>
                         </div>
                     </a>
                     <?php endforeach; ?>
@@ -90,16 +114,16 @@ $description = "Download and print $sizeLabel graph paper in portrait or landsca
             </div>
 
             <!-- Right Ad Skyscraper -->
-            <div class="sidebar-ad">
-                <div class="ad-box">
+            <div class="w-[250px] shrink-0 sticky top-[120px] h-max max-[1250px]:hidden">
+                <div class="bg-white/5 border border-dashed border-white/10 rounded-2xl h-[600px] flex items-center justify-center text-slate-400 text-sm text-center p-5">
                     <span>Advertisement<br>Right Skyscraper</span>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
+        <div class="text-center mt-20 pt-10 border-t border-white/10 text-slate-400 text-[0.95rem]">
             &copy; <?php echo date('Y'); ?> print-graph-paper.com. All rights reserved.
-            <a href="/privacy">Privacy Policy</a>
+            <a href="/privacy" class="text-sky-500 no-underline ml-4 hover:underline">Privacy Policy</a>
         </div>
     </div>
 </body>

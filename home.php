@@ -9,210 +9,151 @@ $description = "Free online graph paper - any size or orientation. Cartesian, po
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <meta name="description" content="<?php echo $description; ?>">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: '#0f172a',
+                        surface: 'rgba(30, 41, 59, 0.7)',
+                        surfaceHover: 'rgba(30, 41, 59, 0.9)',
+                        accent: '#0ea5e9',
+                        accentHover: '#0284c7',
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderHighlight: 'rgba(14, 165, 233, 0.5)'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="main-container">
+<body class="bg-main text-slate-50 font-sans min-h-screen bg-fixed leading-relaxed m-0 p-0">
+    <div class="max-w-[1700px] mx-auto px-[40px] pb-[40px] max-[900px]:px-[15px] max-[900px]:pb-[30px]">
         <!-- Header -->
-        <header class="site-header">
-            <a href="/" class="brand-logo">Print-Graph-Paper.com</a>
+        <header class="bg-[#0f172a]/60 backdrop-blur-md border-b border-borderColor py-6 mb-16 text-center sticky top-0 z-50">
+            <a href="/" class="text-[2.2rem] font-bold tracking-tight bg-gradient-to-br from-sky-400 to-indigo-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity">Print-Graph-Paper.com</a>
         </header>
 
-        <div class="layout-row">
+        <div class="flex flex-nowrap gap-10 max-[900px]:gap-5">
             <!-- Left Ad Skyscraper -->
-            <div class="sidebar-ad">
-                <div class="ad-box">
+            <div class="w-[250px] shrink-0 sticky top-[120px] h-max max-[1250px]:hidden">
+                <div class="bg-white/5 border border-dashed border-white/10 rounded-2xl h-[600px] flex items-center justify-center text-slate-400 text-sm text-center p-5">
                     <span>Advertisement<br>Left Skyscraper</span>
                 </div>
             </div>
 
             <!-- Main Content Area -->
-            <div class="main-content-col">
+            <div class="flex-1 min-w-0">
                 <!-- Top Advertisement -->
-                <div class="top-ad" style="margin-bottom: 2.5em; text-align: center;">
-                    <div class="ad-box" style="height: 90px; width: 100%; max-width: 970px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.85rem;">
+                <div class="mb-10 text-center">
+                    <div class="h-[90px] w-full max-w-[970px] mx-auto bg-white/5 border border-dashed border-white/10 rounded-xl flex items-center justify-center text-slate-400 text-sm">
                         <span>Advertisement<br>Top Banner</span>
                     </div>
                 </div>
 
                 <!-- Small Page Header -->
-                <div style="text-align: center; margin-bottom: 3em;">
-                    <h1 style="font-size: 2.2rem; font-weight: 700; margin: 0 0 0.3em 0; background: linear-gradient(to right, #f8fafc, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Design with Precision.</h1>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+                <div class="text-center mb-12">
+                    <h1 class="text-[2.2rem] max-[900px]:text-[2.4rem] font-bold m-0 mb-1 bg-gradient-to-r from-slate-50 to-slate-400 bg-clip-text text-transparent">Design with Precision.</h1>
+                    <p class="text-[1.1rem] text-slate-400 max-w-[650px] mx-auto">
                         Download premium, precise, and fully customizable graph paper in PDF or SVG formats. Choose from standard cartesian, isometric, polar, and more for your next big project.
                     </p>
                 </div>
                 
                 <!-- Graph Paper Items Catalog -->
-                <div class="paper-grid">
+                <div class="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[30px] max-[900px]:grid-cols-1">
 
-                    <!-- 5mm Graph Paper -->
-                    <a href="/details/5mm" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=5mm" alt="5mm Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">5mm Graph Paper</h3>
-                            <p class="paper-desc">Standard Cartesian system graphing paper with 5mm spacing. Ideal for engineering and precision drafting.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- 1/4 Inch Graph Paper -->
-                    <a href="/details/1-4-inch" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=1-4-inch" alt="1/4 Inch Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">1/4" Inch Graph Paper</h3>
-                            <p class="paper-desc">Also known as Quad or quadrille paper. Four boxes make up an inch. Standard for math and graphing.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Virtual Graph Paper Promo -->
-                    <a href="/virtual-graph-paper" class="paper-card" style="background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(139,92,246,0.1)); border-color: rgba(14,165,233,0.3);">
-                        <div class="paper-card-header">
-                            <div class="paper-thumb" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; text-align:center; font-size:1.2rem; box-shadow: 0 10px 20px rgba(14,165,233,0.4);">
-                                Virtual<br>Canvas
-                            </div>
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title" style="color: #38bdf8;">Virtual Online Graph Paper</h3>
-                            <p class="paper-desc">Draw lines and write text directly in your browser. Fully undoable and printable right from your screen.</p>
-                            <span class="paper-action" style="color: #38bdf8;">Launch Workspace</span>
-                        </div>
-                    </a>
-
-                    <!-- 10 Squares Per Inch Graph Paper -->
-                    <a href="/details/10-squares-per-inch" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=10-squares-per-inch" alt="10 Squares Per Inch Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">10 Squares / Inch</h3>
-                            <p class="paper-desc">Provides a nice even number to work with that is both manageable and precise for inch-based tasks.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Dot Paper -->
-                    <a href="/details/dot-paper" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=dot-paper" alt="Dot Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">Dot Paper</h3>
-                            <p class="paper-desc">Features dots instead of lines. A perfect, subtle alternative for designers and UI/UX wireframing.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Centimeter Graph Paper -->
-                    <a href="/details/10mm" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=10mm" alt="Centimeter Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">Centimeter Graph Paper</h3>
-                            <p class="paper-desc">Standard graph paper with lines exactly 1 centimeter apart. Great for metric drafting.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- 1/2 Inch Graph Paper -->
-                    <a href="/details/1-2-inch" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=1-2-inch" alt="1/2 Inch Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">1/2" Half Inch Graph Paper</h3>
-                            <p class="paper-desc">The half inch grid easily functions as a two-dimensional ruler for basic scaling and plotting.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- 1 Inch Graph Paper -->
-                    <a href="/details/1-inch" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=1-inch" alt="1 Inch Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">1" One-Inch Graph Paper</h3>
-                            <p class="paper-desc">Large grid size useful for measuring, educational purposes, or presentations viewed from afar.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Isometric Graph Paper -->
-                    <a href="/details/isometric" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=isometric" alt="Isometric Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">Isometric Graph Paper</h3>
-                            <p class="paper-desc">Features lines representing three dimensions (length, width, height) for 3D drafting and sketches.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Log Graph Paper -->
-                    <a href="/details/log" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=log" alt="Log Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">Logarithmic Graph Paper</h3>
-                            <p class="paper-desc">Used to plot exponentially changing data. Compresses large ranges for clear visualization.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
-
-                    <!-- Polar Graph Paper -->
-                    <a href="/details/polar" class="paper-card">
-                        <div class="paper-card-header">
-                            <img class="paper-thumb" src="/thumbnail.php?type=polar" alt="Polar Graph Paper Thumbnail">
-                        </div>
-                        <div class="paper-info">
-                            <h3 class="paper-title">Polar Graph Paper</h3>
-                            <p class="paper-desc">Plot points using angles and distances from a fixed point rather than a standard Cartesian grid.</p>
-                            <span class="paper-action">View details</span>
-                        </div>
-                    </a>
+                    <!-- Paper Cards -->
+                    <?php 
+                    $papers = [
+                        ['type' => '5mm', 'name' => '5mm Graph Paper', 'desc' => 'Standard Cartesian system graphing paper with 5mm spacing. Ideal for engineering and precision drafting.'],
+                        ['type' => '1-4-inch', 'name' => '1/4" Inch Graph Paper', 'desc' => 'Also known as Quad or quadrille paper. Four boxes make up an inch. Standard for math and graphing.'],
+                        ['type' => 'virtual', 'name' => 'Virtual Online Graph Paper', 'desc' => 'Draw lines and write text directly in your browser. Fully undoable and printable right from your screen.', 'url' => '/virtual-graph-paper', 'promo' => true],
+                        ['type' => '10-squares-per-inch', 'name' => '10 Squares / Inch', 'desc' => 'Provides a nice even number to work with that is both manageable and precise for inch-based tasks.'],
+                        ['type' => 'dot-paper', 'name' => 'Dot Paper', 'desc' => 'Features dots instead of lines. A perfect, subtle alternative for designers and UI/UX wireframing.'],
+                        ['type' => '10mm', 'name' => 'Centimeter Graph Paper', 'desc' => 'Standard graph paper with lines exactly 1 centimeter apart. Great for metric drafting.'],
+                        ['type' => '1-2-inch', 'name' => '1/2" Half Inch Graph Paper', 'desc' => 'The half inch grid easily functions as a two-dimensional ruler for basic scaling and plotting.'],
+                        ['type' => '1-inch', 'name' => '1" One-Inch Graph Paper', 'desc' => 'Large grid size useful for measuring, educational purposes, or presentations viewed from afar.'],
+                        ['type' => 'isometric', 'name' => 'Isometric Graph Paper', 'desc' => 'Features lines representing three dimensions (length, width, height) for 3D drafting and sketches.'],
+                        ['type' => 'log', 'name' => 'Logarithmic Graph Paper', 'desc' => 'Used to plot exponentially changing data. Compresses large ranges for clear visualization.'],
+                        ['type' => 'polar', 'name' => 'Polar Graph Paper', 'desc' => 'Plot points using angles and distances from a fixed point rather than a standard Cartesian grid.']
+                    ];
+                    
+                    foreach ($papers as $paper) {
+                        $url = isset($paper['url']) ? $paper['url'] : "/details/" . $paper['type'];
+                        $isPromo = isset($paper['promo']) && $paper['promo'];
+                        
+                        $cardClass = "bg-surface hover:bg-surfaceHover border border-borderColor hover:border-borderHighlight rounded-2xl p-[30px] flex flex-col no-underline relative overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5),0_0_20px_rgba(14,165,233,0.15)] group";
+                        
+                        if ($isPromo) {
+                            $cardClass .= " bg-gradient-to-br from-sky-500/10 to-violet-500/10 border-sky-500/30";
+                        }
+                        
+                        echo '<a href="' . $url . '" class="' . $cardClass . '">';
+                        echo '<div class="flex justify-center mb-6 relative z-10">';
+                        
+                        if ($isPromo) {
+                            echo '<div class="w-[150px] h-[190px] rounded-lg bg-gradient-to-br from-sky-500 to-blue-500 flex items-center justify-center text-white font-bold text-center text-xl shadow-[0_10px_20px_rgba(14,165,233,0.4)] transition-transform duration-400 group-hover:scale-105 group-hover:rotate-3 group-hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]">Virtual<br>Canvas</div>';
+                        } else {
+                            echo '<img class="w-[150px] h-[190px] object-cover border border-white/20 rounded-lg bg-white shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-transform duration-400 group-hover:scale-105 group-hover:rotate-3 group-hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]" src="/thumbnail.php?type=' . $paper['type'] . '" alt="' . $paper['name'] . ' Thumbnail">';
+                        }
+                        
+                        echo '</div>';
+                        
+                        echo '<div class="flex-grow flex flex-col relative z-10">';
+                        
+                        $titleColor = $isPromo ? 'text-sky-400' : 'text-slate-50';
+                        echo '<h3 class="m-0 mb-3 text-[1.5rem] font-semibold ' . $titleColor . '">' . $paper['name'] . '</h3>';
+                        echo '<p class="m-0 mb-6 text-slate-400 text-[1rem] leading-relaxed flex-grow">' . $paper['desc'] . '</p>';
+                        
+                        $actionColor = $isPromo ? 'text-sky-400' : 'text-sky-500';
+                        $actionText = $isPromo ? 'Launch Workspace' : 'View details';
+                        echo '<span class="inline-flex items-center gap-2 font-semibold ' . $actionColor . ' mt-auto group-hover:text-sky-400 transition-colors">' . $actionText . '<span class="transition-transform group-hover:translate-x-1.5">→</span></span>';
+                        
+                        echo '</div>';
+                        echo '</a>';
+                    }
+                    ?>
 
                 </div> <!-- End Paper Grid -->
 
                 <!-- Educational & Size Filter Footer Section -->
-                <div style="margin-top:4em; border-top:1px solid rgba(255,255,255,0.1); padding-top:3em;">
-                    <section id="byPaperSize" style="margin-bottom: 2em;">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 1em;">Looking for a particular paper size?</h3>
-                        <p style="color: var(--text-secondary); max-width: 800px; font-size: 1.1rem;">
+                <div class="mt-16 border-t border-white/10 pt-12">
+                    <section id="byPaperSize" class="mb-8">
+                        <h3 class="text-[1.8rem] mb-4">Looking for a particular paper size?</h3>
+                        <p class="text-slate-400 max-w-[800px] text-[1.1rem]">
                             Every type of graph paper we offer comes in different paper sizes and orientations. Explore our dedicated size pages:
                         </p>
-                        <div class="option-chips" style="margin-top: 1.5em;">
-                            <a href="/paper-size/a4" class="chip">A4 Size</a>
-                            <a href="/paper-size/11x17" class="chip">11x17 Size</a>
-                            <a href="/paper-size/legal" class="chip">Legal Size</a>
-                            <a href="/paper-size/a3" class="chip">A3 Size</a>
-                            <a href="/paper-size/a2" class="chip">A2 Size</a>
-                            <a href="/paper-size/poster" class="chip">Poster Size</a>
-                            <a href="/paper-size/movie-poster" class="chip">Movie Poster</a>
+                        <div class="flex flex-wrap gap-3 mt-6 max-[900px]:justify-center">
+                            <?php
+                            $sizes = ['A4', '11x17', 'Legal', 'A3', 'A2', 'Poster', 'Movie Poster'];
+                            foreach($sizes as $s) {
+                                $slug = strtolower(str_replace(' ', '-', $s));
+                                echo '<a href="/paper-size/' . $slug . '" class="px-5 py-2.5 rounded-full text-[0.95rem] font-medium no-underline border border-borderColor bg-white/5 text-slate-400 transition-colors hover:border-sky-500 hover:text-white hover:bg-sky-500/10">' . $s . ' Size</a>';
+                            }
+                            ?>
                         </div>
                     </section>
                 </div>
             </div>
 
             <!-- Right Ad Skyscraper -->
-            <div class="sidebar-ad">
-                <div class="ad-box">
+            <div class="w-[250px] shrink-0 sticky top-[120px] h-max max-[1250px]:hidden">
+                <div class="bg-white/5 border border-dashed border-white/10 rounded-2xl h-[600px] flex items-center justify-center text-slate-400 text-sm text-center p-5">
                     <span>Advertisement<br>Right Skyscraper</span>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
+        <div class="text-center mt-20 pt-10 border-t border-white/10 text-slate-400 text-[0.95rem]">
             &copy; <?php echo date('Y'); ?> print-graph-paper.com. All rights reserved.
-            <a href="/privacy">Privacy Policy</a>
+            <a href="/privacy" class="text-sky-500 no-underline ml-4 hover:underline">Privacy Policy</a>
         </div>
     </div>
 </body>
